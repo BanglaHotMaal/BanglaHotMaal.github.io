@@ -4,971 +4,621 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>De Bash Movies</title>
-<meta name="description" content="De Bash Movies - Movies, trailers and entertainment">
+<title>Bangla Hot Maal - 18+</title>
 
 <style>
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 body{
-  background:#08090d;
-  color:#fff;
-  font-family:Arial,Helvetica,sans-serif;
+    background:#0b0b0b;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
 }
 
-/* HEADER */
+/* ===== AGE GATE ===== */
+
+#ageGate{
+    position:fixed;
+    inset:0;
+    background:#090909;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:99999;
+}
+
+.age-box{
+    width:90%;
+    max-width:430px;
+    background:#181818;
+    border-radius:18px;
+    padding:35px 25px;
+    text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,.7);
+}
+
+.age-icon{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+.age-box h1{
+    font-size:30px;
+    margin-bottom:12px;
+}
+
+.age-box p{
+    color:#aaa;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.age-btn{
+    width:100%;
+    border:0;
+    padding:14px;
+    margin:6px 0;
+    border-radius:9px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.enter{
+    background:#e50914;
+    color:#fff;
+}
+
+.exit{
+    background:#333;
+    color:#fff;
+}
+
+/* ===== HEADER ===== */
+
 header{
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(12,13,18,.96);
-  border-bottom:1px solid #252731;
-  backdrop-filter:blur(10px);
-}
-
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  padding:16px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    background:#151515;
+    padding:16px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    border-bottom:1px solid #292929;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
 .logo{
-  font-size:24px;
-  font-weight:800;
-  white-space:nowrap;
+    font-size:22px;
+    font-weight:bold;
 }
 
 .logo span{
-  color:#e50914;
-}
-
-nav{
-  display:flex;
-  gap:22px;
+    color:#e50914;
 }
 
 nav a{
-  color:#ddd;
-  text-decoration:none;
-  font-size:14px;
+    color:#ddd;
+    text-decoration:none;
+    margin-left:18px;
+    font-size:14px;
 }
 
-nav a:hover{
-  color:#fff;
-}
+/* ===== HERO ===== */
 
-/* HERO */
 .hero{
-  min-height:420px;
-  display:flex;
-  align-items:center;
-  background:
-    linear-gradient(90deg,#08090d 15%,rgba(8,9,13,.8),rgba(8,9,13,.25)),
-    linear-gradient(135deg,#242733,#0c0d12);
-}
-
-.hero-inner{
-  width:100%;
-  max-width:1200px;
-  margin:auto;
-  padding:70px 20px;
-}
-
-.hero-content{
-  max-width:650px;
-}
-
-.hero small{
-  color:#e50914;
-  font-weight:bold;
-  letter-spacing:1px;
+    padding:55px 6%;
+    background:linear-gradient(135deg,#181818,#0b0b0b);
 }
 
 .hero h1{
-  font-size:48px;
-  line-height:1.1;
-  margin:12px 0 16px;
+    font-size:clamp(30px,6vw,55px);
+    margin-bottom:12px;
+}
+
+.hero h1 span{
+    color:#e50914;
 }
 
 .hero p{
-  color:#b8bac2;
-  line-height:1.7;
-  max-width:580px;
+    color:#aaa;
+    max-width:600px;
+    line-height:1.6;
 }
 
 .hero-buttons{
-  margin-top:25px;
-  display:flex;
-  gap:12px;
+    margin-top:25px;
 }
 
-.btn{
-  border:0;
-  border-radius:7px;
-  padding:13px 22px;
-  cursor:pointer;
-  font-weight:bold;
-  font-size:14px;
+.hero-buttons a{
+    display:inline-block;
+    background:#e50914;
+    color:#fff;
+    text-decoration:none;
+    padding:13px 20px;
+    border-radius:8px;
+    margin-right:8px;
 }
 
-.btn-primary{
-  background:#e50914;
-  color:#fff;
-}
+/* ===== CONTENT ===== */
 
-.btn-secondary{
-  background:#292b33;
-  color:#fff;
-}
-
-/* SEARCH */
-.search-area{
-  max-width:1200px;
-  margin:auto;
-  padding:25px 20px 10px;
-}
-
-.search-box{
-  position:relative;
-}
-
-.search-box input{
-  width:100%;
-  padding:15px 18px;
-  border:1px solid #30323b;
-  border-radius:8px;
-  outline:none;
-  background:#15171d;
-  color:#fff;
-  font-size:15px;
-}
-
-.search-box input:focus{
-  border-color:#e50914;
-}
-
-/* CONTENT */
 .container{
-  max-width:1200px;
-  margin:auto;
-  padding:25px 20px 50px;
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 0;
 }
 
-.section{
-  margin-top:25px;
+.search{
+    width:100%;
+    background:#181818;
+    border:1px solid #292929;
+    color:#fff;
+    padding:15px;
+    border-radius:10px;
+    outline:none;
+    margin-bottom:20px;
 }
 
-.section-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:18px;
-}
-
-.section-title{
-  font-size:23px;
-}
-
-.section-subtitle{
-  color:#777;
-  font-size:13px;
-}
-
-/* CATEGORY */
 .categories{
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-  padding-bottom:8px;
-}
-
-.categories::-webkit-scrollbar{
-  height:4px;
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding-bottom:15px;
 }
 
 .category{
-  flex:0 0 auto;
-  background:#171920;
-  border:1px solid #292b34;
-  color:#ccc;
-  padding:9px 17px;
-  border-radius:20px;
-  cursor:pointer;
-  font-size:13px;
+    background:#202020;
+    color:#ddd;
+    border:0;
+    padding:10px 17px;
+    border-radius:20px;
+    white-space:nowrap;
+    cursor:pointer;
 }
 
 .category.active,
 .category:hover{
-  background:#e50914;
-  border-color:#e50914;
-  color:#fff;
+    background:#e50914;
+    color:#fff;
 }
 
-/* MOVIES */
-.movies{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:18px;
+.section-title{
+    margin:20px 0;
 }
 
-.movie-card{
-  background:#14161c;
-  border:1px solid #23252d;
-  border-radius:9px;
-  overflow:hidden;
-  transition:.2s;
+.section-title h2{
+    font-size:24px;
 }
 
-.movie-card:hover{
-  transform:translateY(-5px);
-  border-color:#3b3e49;
+.section-title p{
+    color:#777;
+    margin-top:5px;
 }
 
-.poster{
-  height:270px;
-  background:
-    linear-gradient(135deg,#343741,#171920);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#777;
-  font-size:13px;
-  position:relative;
-}
+/* ===== VIDEO CARDS ===== */
 
-.poster-badge{
-  position:absolute;
-  top:10px;
-  left:10px;
-  background:#e50914;
-  padding:5px 8px;
-  border-radius:4px;
-  font-size:11px;
-  font-weight:bold;
-}
-
-.movie-info{
-  padding:13px;
-}
-
-.movie-title{
-  font-size:15px;
-  margin-bottom:7px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.movie-meta{
-  color:#858791;
-  font-size:12px;
-  margin-bottom:12px;
-}
-
-.watch-btn{
-  width:100%;
-  padding:9px;
-  border:0;
-  border-radius:5px;
-  background:#252832;
-  color:#fff;
-  cursor:pointer;
-}
-
-.watch-btn:hover{
-  background:#e50914;
-}
-
-/* NO RESULT */
-.no-result{
-  display:none;
-  text-align:center;
-  padding:40px;
-  color:#777;
-}
-
-/* MODAL */
-.modal{
-  display:none;
-  position:fixed;
-  inset:0;
-  z-index:200;
-  background:rgba(0,0,0,.88);
-  padding:20px;
-  align-items:center;
-  justify-content:center;
-}
-
-.modal-box{
-  width:100%;
-  max-width:720px;
-  max-height:90vh;
-  overflow:auto;
-  background:#15171d;
-  border:1px solid #30323b;
-  border-radius:12px;
-  padding:20px;
-}
-
-.modal-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:15px;
-}
-
-.close{
-  border:0;
-  background:none;
-  color:#fff;
-  font-size:28px;
-  cursor:pointer;
-}
-
-.video-box{
-  width:100%;
-  aspect-ratio:16/9;
-  background:#050505;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#666;
-  border-radius:8px;
-  margin-bottom:18px;
-}
-
-.modal-title{
-  font-size:23px;
-  margin-bottom:8px;
-}
-
-.modal-meta{
-  color:#888;
-  font-size:13px;
-  margin-bottom:14px;
-}
-
-.modal-description{
-  color:#aaa;
-  line-height:1.7;
-  margin-bottom:20px;
-}
-
-/* FOOTER */
-footer{
-  border-top:1px solid #24262e;
-  background:#0d0e12;
-  padding:35px 20px;
-  text-align:center;
-  color:#777;
-}
-
-.footer-logo{
-  color:#fff;
-  font-weight:bold;
-  font-size:20px;
-  margin-bottom:10px;
-}
-
-.footer-logo span{
-  color:#e50914;
-}
-
-footer p{
-  font-size:13px;
-}
-
-/* MOBILE */
-@media(max-width:1000px){
-  .movies{
-    grid-template-columns:repeat(4,1fr);
-  }
-}
-
-@media(max-width:750px){
-  nav{
-    display:none;
-  }
-
-  .hero{
-    min-height:360px;
-  }
-
-  .hero h1{
-    font-size:36px;
-  }
-
-  .movies{
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-  }
-
-  .poster{
-    height:220px;
-  }
-}
-
-@media(max-width:520px){
-  .header-inner{
-    padding:14px 15px;
-  }
-
-  .logo{
-    font-size:20px;
-  }
-
-  .hero-inner{
-    padding:55px 18px;
-  }
-
-  .hero h1{
-    font-size:31px;
-  }
-
-  .container,
-  .search-area{
-    padding-left:15px;
-    padding-right:15px;
-  }
-
-  .movies{
+.grid{
+    display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:10px;
-  }
+    gap:15px;
+}
 
-  .poster{
-    height:205px;
-  }
+.card{
+    background:#171717;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid #242424;
+}
 
-  .movie-info{
+.thumb{
+    height:180px;
+    background:#292929;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:45px;
+}
+
+.card-info{
+    padding:13px;
+}
+
+.card-info h3{
+    font-size:16px;
+    margin-bottom:7px;
+}
+
+.card-info p{
+    color:#888;
+    font-size:13px;
+    margin-bottom:12px;
+}
+
+.watch{
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    background:#e50914;
+    color:#fff;
     padding:10px;
-  }
-
-  .movie-title{
+    border-radius:7px;
     font-size:14px;
-  }
+}
 
-  .hero-buttons{
-    flex-wrap:wrap;
-  }
+/* ===== FOOTER ===== */
+
+footer{
+    margin-top:40px;
+    padding:30px 15px;
+    text-align:center;
+    background:#151515;
+    color:#777;
+    font-size:13px;
+}
+
+@media(min-width:700px){
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .thumb{
+        height:210px;
+    }
+}
+
+@media(min-width:1000px){
+    .grid{
+        grid-template-columns:repeat(4,1fr);
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="logo">
-      De Bash <span>Movies</span>
-    </div>
+<!-- ================= AGE VERIFICATION ================= -->
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#movies">Movies</a>
-      <a href="#categories">Categories</a>
-    </nav>
-  </div>
-</header>
+<div id="ageGate">
 
+    <div class="age-box">
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div class="hero-content">
+        <div class="age-icon">🔞</div>
 
-      <small>WELCOME TO DE BASH MOVIES</small>
+        <h1>18+ Only</h1>
 
-      <h1>Movies & Entertainment</h1>
+        <p>
+            This website is intended for adults aged 18 or older.
+            By entering this website, you confirm that you are at least
+            18 years old and agree to continue.
+        </p>
 
-      <p>
-        Discover movies, trailers and entertainment
-        in one place.
-      </p>
-
-      <div class="hero-buttons">
-        <button class="btn btn-primary"
-          onclick="scrollToMovies()">
-          ▶ Explore Movies
+        <button class="age-btn enter" onclick="enterSite()">
+            I am 18+ — Enter
         </button>
 
-        <button class="btn btn-secondary"
-          onclick="scrollToCategories()">
-          Browse Categories
+        <button class="age-btn exit" onclick="exitSite()">
+            Exit
         </button>
-      </div>
 
     </div>
-  </div>
-</section>
 
-
-<!-- SEARCH -->
-<div class="search-area">
-  <div class="search-box">
-    <input
-      id="searchInput"
-      type="text"
-      placeholder="🔍 Search movies..."
-      oninput="searchMovies()"
-    >
-  </div>
 </div>
 
 
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo">
+        🔞 <span>Bangla</span> Hot Maal
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#videos">Videos</a>
+        <a href="#categories">Categories</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+    <h1>
+        Welcome to <span>Bangla Hot Maal</span>
+    </h1>
+
+    <p>
+        Explore our adult-oriented video collection.
+        This website is intended for users aged 18 and above.
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="#videos">
+            ▶ Browse Videos
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAIN ================= -->
+
 <main class="container">
 
-<!-- CATEGORIES -->
-<section class="section" id="categories">
+    <!-- SEARCH -->
 
-  <div class="section-header">
-    <h2 class="section-title">🎭 Categories</h2>
-  </div>
-
-  <div class="categories">
-
-    <button class="category active"
-      onclick="filterCategory('All',this)">
-      All
-    </button>
-
-    <button class="category"
-      onclick="filterCategory('Action',this)">
-      Action
-    </button>
-
-    <button class="category"
-      onclick="filterCategory('Comedy',this)">
-      Comedy
-    </button>
-
-    <button class="category"
-      onclick="filterCategory('Drama',this)">
-      Drama
-    </button>
-
-    <button class="category"
-      onclick="filterCategory('Thriller',this)">
-      Thriller
-    </button>
-
-    <button class="category"
-      onclick="filterCategory('Sci-Fi',this)">
-      Sci-Fi
-    </button>
-
-    <button class="category"
-      onclick="filterCategory('Animation',this)">
-      Animation
-    </button>
-
-  </div>
-</section>
+    <input
+        type="text"
+        id="search"
+        class="search"
+        placeholder="🔍 Search videos..."
+        onkeyup="searchVideos()"
+    >
 
 
-<!-- MOVIES -->
-<section class="section" id="movies">
+    <!-- CATEGORIES -->
 
-  <div class="section-header">
-    <h2 class="section-title">🔥 Featured Movies</h2>
-    <span class="section-subtitle">
-      Latest collection
-    </span>
-  </div>
+    <div class="categories" id="categories">
 
-  <div class="movies" id="movieGrid">
-
-
-    <!-- MOVIE 1 -->
-    <article class="movie-card"
-      data-title="The Last Journey"
-      data-category="Action">
-
-      <div class="poster">
-        <span class="poster-badge">HD</span>
-        MOVIE POSTER
-      </div>
-
-      <div class="movie-info">
-        <h3 class="movie-title">
-          The Last Journey
-        </h3>
-
-        <p class="movie-meta">
-          Action • 2026
-        </p>
-
-        <button class="watch-btn"
-          onclick="openMovie(
-          'The Last Journey',
-          'Action • 2026',
-          'A sample movie description.'
-          )">
-          ▶ Watch Details
+        <button class="category active" onclick="filterCategory('all',this)">
+            All
         </button>
-      </div>
 
-    </article>
-
-
-    <!-- MOVIE 2 -->
-    <article class="movie-card"
-      data-title="Hidden Story"
-      data-category="Drama">
-
-      <div class="poster">
-        <span class="poster-badge">HD</span>
-        MOVIE POSTER
-      </div>
-
-      <div class="movie-info">
-        <h3 class="movie-title">
-          Hidden Story
-        </h3>
-
-        <p class="movie-meta">
-          Drama • 2026
-        </p>
-
-        <button class="watch-btn"
-          onclick="openMovie(
-          'Hidden Story',
-          'Drama • 2026',
-          'A sample drama movie description.'
-          )">
-          ▶ Watch Details
+        <button class="category" onclick="filterCategory('bangla',this)">
+            Bangla
         </button>
-      </div>
 
-    </article>
-
-
-    <!-- MOVIE 3 -->
-    <article class="movie-card"
-      data-title="Funny Weekend"
-      data-category="Comedy">
-
-      <div class="poster">
-        <span class="poster-badge">HD</span>
-        MOVIE POSTER
-      </div>
-
-      <div class="movie-info">
-        <h3 class="movie-title">
-          Funny Weekend
-        </h3>
-
-        <p class="movie-meta">
-          Comedy • 2026
-        </p>
-
-        <button class="watch-btn"
-          onclick="openMovie(
-          'Funny Weekend',
-          'Comedy • 2026',
-          'A sample comedy movie description.'
-          )">
-          ▶ Watch Details
+        <button class="category" onclick="filterCategory('new',this)">
+            New
         </button>
-      </div>
 
-    </article>
-
-
-    <!-- MOVIE 4 -->
-    <article class="movie-card"
-      data-title="Dark Night"
-      data-category="Thriller">
-
-      <div class="poster">
-        <span class="poster-badge">HD</span>
-        MOVIE POSTER
-      </div>
-
-      <div class="movie-info">
-        <h3 class="movie-title">
-          Dark Night
-        </h3>
-
-        <p class="movie-meta">
-          Thriller • 2026
-        </p>
-
-        <button class="watch-btn"
-          onclick="openMovie(
-          'Dark Night',
-          'Thriller • 2026',
-          'A sample thriller movie description.'
-          )">
-          ▶ Watch Details
+        <button class="category" onclick="filterCategory('popular',this)">
+            Popular
         </button>
-      </div>
 
-    </article>
-
-
-    <!-- MOVIE 5 -->
-    <article class="movie-card"
-      data-title="Future World"
-      data-category="Sci-Fi">
-
-      <div class="poster">
-        <span class="poster-badge">HD</span>
-        MOVIE POSTER
-      </div>
-
-      <div class="movie-info">
-        <h3 class="movie-title">
-          Future World
-        </h3>
-
-        <p class="movie-meta">
-          Sci-Fi • 2026
-        </p>
-
-        <button class="watch-btn"
-          onclick="openMovie(
-          'Future World',
-          'Sci-Fi • 2026',
-          'A sample science-fiction movie description.'
-          )">
-          ▶ Watch Details
+        <button class="category" onclick="filterCategory('latest',this)">
+            Latest
         </button>
-      </div>
 
-    </article>
-
-
-    <!-- MOVIE 6 -->
-    <article class="movie-card"
-      data-title="Magic World"
-      data-category="Animation">
-
-      <div class="poster">
-        <span class="poster-badge">HD</span>
-        MOVIE POSTER
-      </div>
-
-      <div class="movie-info">
-        <h3 class="movie-title">
-          Magic World
-        </h3>
-
-        <p class="movie-meta">
-          Animation • 2026
-        </p>
-
-        <button class="watch-btn"
-          onclick="openMovie(
-          'Magic World',
-          'Animation • 2026',
-          'A sample animation movie description.'
-          )">
-          ▶ Watch Details
-        </button>
-      </div>
-
-    </article>
+    </div>
 
 
-  </div>
+    <!-- VIDEOS -->
 
-  <div class="no-result" id="noResult">
-    No movies found.
-  </div>
+    <div class="section-title" id="videos">
 
-</section>
+        <h2>🔥 Featured Videos</h2>
+
+        <p>Latest collection</p>
+
+    </div>
+
+
+    <div class="grid" id="videoGrid">
+
+
+        <!-- VIDEO 1 -->
+
+        <div class="card" data-category="bangla new">
+
+            <div class="thumb">
+                ▶️
+            </div>
+
+            <div class="card-info">
+
+                <h3>Video Title 01</h3>
+
+                <p>Bangla • New</p>
+
+                <a href="#" class="watch">
+                    ▶ Watch
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 2 -->
+
+        <div class="card" data-category="bangla popular">
+
+            <div class="thumb">
+                ▶️
+            </div>
+
+            <div class="card-info">
+
+                <h3>Video Title 02</h3>
+
+                <p>Bangla • Popular</p>
+
+                <a href="#" class="watch">
+                    ▶ Watch
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 3 -->
+
+        <div class="card" data-category="latest">
+
+            <div class="thumb">
+                ▶️
+            </div>
+
+            <div class="card-info">
+
+                <h3>Video Title 03</h3>
+
+                <p>Latest Collection</p>
+
+                <a href="#" class="watch">
+                    ▶ Watch
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO 4 -->
+
+        <div class="card" data-category="popular">
+
+            <div class="thumb">
+                ▶️
+            </div>
+
+            <div class="card-info">
+
+                <h3>Video Title 04</h3>
+
+                <p>Popular</p>
+
+                <a href="#" class="watch">
+                    ▶ Watch
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
 
 </main>
 
 
-<!-- MOVIE DETAILS MODAL -->
-<div class="modal" id="movieModal">
+<!-- ================= FOOTER ================= -->
 
-  <div class="modal-box">
-
-    <div class="modal-top">
-      <strong>Movie Details</strong>
-
-      <button class="close"
-        onclick="closeMovie()">
-        ×
-      </button>
-    </div>
-
-    <div class="video-box">
-      VIDEO PLAYER
-    </div>
-
-    <h2 class="modal-title"
-      id="modalTitle">
-    </h2>
-
-    <p class="modal-meta"
-      id="modalMeta">
-    </p>
-
-    <p class="modal-description"
-      id="modalDescription">
-    </p>
-
-    <button class="btn btn-primary"
-      onclick="closeMovie()">
-      Close
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- FOOTER -->
 <footer>
 
-  <div class="footer-logo">
-    De Bash <span>Movies</span>
-  </div>
+    <p>© 2026 Bangla Hot Maal</p>
 
-  <p>
-    © 2026 De Bash Movies. All rights reserved.
-  </p>
+    <p style="margin-top:8px;">
+        18+ Only • Adults Only
+    </p>
 
 </footer>
 
 
+<!-- ================= JAVASCRIPT ================= -->
+
 <script>
 
-/* SCROLL */
-function scrollToMovies(){
-  document.getElementById("movies")
-  .scrollIntoView({behavior:"smooth"});
+/* AGE VERIFICATION */
+
+function enterSite(){
+
+    localStorage.setItem("ageVerified","true");
+
+    document.getElementById("ageGate").style.display="none";
+
 }
 
-function scrollToCategories(){
-  document.getElementById("categories")
-  .scrollIntoView({behavior:"smooth"});
+
+function exitSite(){
+
+    window.location.href="https://www.google.com";
+
+}
+
+
+/* CHECK AGE */
+
+if(localStorage.getItem("ageVerified")==="true"){
+
+    document.getElementById("ageGate").style.display="none";
+
 }
 
 
 /* SEARCH */
-function searchMovies(){
 
-  const search =
-    document.getElementById("searchInput")
-    .value
-    .toLowerCase();
+function searchVideos(){
 
-  const cards =
-    document.querySelectorAll(".movie-card");
+    const query =
+        document.getElementById("search")
+        .value
+        .toLowerCase();
 
-  let found = 0;
+    const cards =
+        document.querySelectorAll(".card");
 
-  cards.forEach(card=>{
+    cards.forEach(card=>{
 
-    const title =
-      card.dataset.title.toLowerCase();
+        const text =
+            card.innerText.toLowerCase();
 
-    if(title.includes(search)){
-      card.style.display="block";
-      found++;
-    }else{
-      card.style.display="none";
-    }
+        if(text.includes(query)){
 
-  });
+            card.style.display="block";
 
-  document.getElementById("noResult")
-    .style.display =
-    found === 0 ? "block" : "none";
+        }else{
+
+            card.style.display="none";
+
+        }
+
+    });
+
 }
 
 
 /* CATEGORY FILTER */
+
 function filterCategory(category,button){
 
-  document
-    .querySelectorAll(".category")
-    .forEach(btn=>{
-      btn.classList.remove("active");
+    document
+        .querySelectorAll(".category")
+        .forEach(btn=>{
+            btn.classList.remove("active");
+        });
+
+    button.classList.add("active");
+
+    const cards =
+        document.querySelectorAll(".card");
+
+    cards.forEach(card=>{
+
+        if(category==="all"){
+
+            card.style.display="block";
+
+            return;
+        }
+
+        const cardCategory =
+            card.dataset.category || "";
+
+        if(cardCategory.includes(category)){
+
+            card.style.display="block";
+
+        }else{
+
+            card.style.display="none";
+
+        }
+
     });
 
-  button.classList.add("active");
-
-  const cards =
-    document.querySelectorAll(".movie-card");
-
-  let found=0;
-
-  cards.forEach(card=>{
-
-    if(
-      category==="All" ||
-      card.dataset.category===category
-    ){
-
-      card.style.display="block";
-      found++;
-
-    }else{
-
-      card.style.display="none";
-
-    }
-
-  });
-
-  document.getElementById("noResult")
-    .style.display =
-    found===0 ? "block" : "none";
 }
-
-
-/* MOVIE DETAILS */
-function openMovie(title,meta,description){
-
-  document.getElementById("modalTitle")
-    .innerText=title;
-
-  document.getElementById("modalMeta")
-    .innerText=meta;
-
-  document.getElementById("modalDescription")
-    .innerText=description;
-
-  document.getElementById("movieModal")
-    .style.display="flex";
-}
-
-
-/* CLOSE MODAL */
-function closeMovie(){
-
-  document.getElementById("movieModal")
-    .style.display="none";
-}
-
-
-/* CLOSE BY CLICKING OUTSIDE */
-document.getElementById("movieModal")
-.addEventListener("click",function(e){
-
-  if(e.target===this){
-    closeMovie();
-  }
-
-});
 
 </script>
 
