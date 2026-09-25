@@ -1,7 +1,7 @@
 const movies = [
   {
     title: "Cute Girl Boobs",
-    category: "Cam",
+    category: "Action",
     year: "2026",
     quality: "HD",
     poster: "",
