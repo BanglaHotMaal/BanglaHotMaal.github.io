@@ -1,11 +1,11 @@
 const movies = [
   {
-    title: "The Last Journey",
-    category: "Action",
+    title: "Cute Girl Boobs",
+    category: "Cam",
     year: "2026",
     quality: "HD",
     poster: "",
-    video: "",
+    video: "VID_20260925_104355_878.mp4",
     description: "An exciting action movie full of adventure and suspense."
   },
 
