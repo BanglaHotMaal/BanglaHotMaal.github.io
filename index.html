@@ -2,211 +2,51 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>De Bash Movies</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  background:#0b0b0f;
-  color:#fff;
-  font-family:Arial,sans-serif;
-}
-
-header{
-  background:#111116;
-  padding:18px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  position:sticky;
-  top:0;
-  z-index:10;
-  border-bottom:1px solid #24242b;
-}
-
-.logo{
-  font-size:25px;
-  font-weight:bold;
-}
-
-.logo span{
-  color:#e50914;
-}
-
-nav a{
-  color:#ddd;
-  text-decoration:none;
-  margin-left:18px;
-  font-size:14px;
-}
-
-.hero{
-  min-height:330px;
-  padding:70px 6%;
-  display:flex;
-  align-items:center;
-  background:
-  linear-gradient(90deg,#0b0b0f 20%,rgba(11,11,15,.65),rgba(11,11,15,.2)),
-  linear-gradient(135deg,#25252d,#111116);
-}
-
-.hero-content{
-  max-width:600px;
-}
-
-.hero h1{
-  font-size:42px;
-  margin-bottom:15px;
-}
-
-.hero p{
-  color:#bbb;
-  line-height:1.6;
-  margin-bottom:25px;
-}
-
-.btn{
-  display:inline-block;
-  background:#e50914;
-  color:white;
-  text-decoration:none;
-  padding:12px 22px;
-  border-radius:6px;
-  font-weight:bold;
-}
-
-.search{
-  padding:25px 5%;
-  text-align:center;
-}
-
-.search input{
-  width:100%;
-  max-width:600px;
-  padding:15px 18px;
-  border:1px solid #333;
-  border-radius:8px;
-  background:#18181e;
-  color:#fff;
-  outline:none;
-  font-size:15px;
-}
-
-.section{
-  padding:15px 5% 35px;
-}
-
-.section-title{
-  font-size:23px;
-  margin-bottom:20px;
-}
-
-.movies{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:18px;
-}
-
-.movie{
-  background:#17171d;
-  border-radius:9px;
-  overflow:hidden;
-  transition:.2s;
-}
-
-.movie:hover{
-  transform:translateY(-5px);
-}
-
-.poster{
-  height:250px;
-  background:linear-gradient(135deg,#292932,#17171d);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#777;
-  font-size:14px;
-}
-
-.movie-info{
-  padding:13px;
-}
-
-.movie-info h3{
-  font-size:16px;
-  margin-bottom:7px;
-}
-
-.movie-info p{
-  color:#888;
-  font-size:13px;
-}
-
-.categories{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
-.category{
-  background:#1c1c23;
-  padding:10px 18px;
-  border-radius:20px;
-  color:#ccc;
-  font-size:14px;
-}
-
-footer{
-  background:#111116;
-  text-align:center;
-  padding:30px;
-  color:#777;
-  margin-top:20px;
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0b0b0f;color:#fff;font-family:Arial,sans-serif}
+header{background:#111116;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;border-bottom:1px solid #29292f}
+.logo{font-size:24px;font-weight:bold}.logo span{color:#e50914}
+nav a{color:#ddd;text-decoration:none;margin-left:18px;font-size:14px}
+.hero{padding:65px 6%;background:linear-gradient(90deg,#0b0b0f,#15151c)}
+.hero h1{font-size:40px;margin-bottom:12px}
+.hero p{color:#aaa;margin-bottom:22px}
+.btn{background:#e50914;color:#fff;border:0;border-radius:6px;padding:11px 20px;cursor:pointer;font-weight:bold}
+.search{text-align:center;padding:25px 5%}
+.search input{width:100%;max-width:600px;padding:14px;border:1px solid #333;border-radius:8px;background:#18181e;color:#fff;outline:0}
+.section{padding:15px 5% 35px}
+.section-title{margin-bottom:18px}
+.movies{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.movie{background:#17171d;border-radius:9px;overflow:hidden;transition:.2s}
+.movie:hover{transform:translateY(-5px)}
+.poster{height:250px;background:linear-gradient(135deg,#30303a,#17171d);display:flex;align-items:center;justify-content:center;color:#777}
+.movie-info{padding:13px}
+.movie-info h3{font-size:16px;margin-bottom:7px}
+.movie-info p{color:#888;font-size:13px;margin-bottom:12px}
+.play{width:100%;padding:9px;background:#e50914;color:#fff;border:0;border-radius:5px;cursor:pointer}
+.categories{display:flex;gap:10px;flex-wrap:wrap}
+.category{background:#1c1c23;padding:10px 18px;border-radius:20px;color:#ccc}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:20;align-items:center;justify-content:center;padding:20px}
+.modal-box{background:#18181e;max-width:600px;width:100%;padding:25px;border-radius:12px}
+.modal-box h2{margin-bottom:10px}
+.modal-box p{color:#aaa;line-height:1.6;margin-bottom:18px}
+.close{float:right;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
+.player{width:100%;height:280px;background:#050505;display:flex;align-items:center;justify-content:center;color:#777;margin-bottom:20px}
+footer{text-align:center;padding:30px;background:#111116;color:#777}
 
 @media(max-width:800px){
-  .movies{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-  }
-
-  .poster{
-    height:210px;
-  }
-
-  .hero{
-    min-height:300px;
-    padding:50px 6%;
-  }
-
-  .hero h1{
-    font-size:32px;
-  }
-
-  nav a{
-    margin-left:8px;
-    font-size:12px;
-  }
+.movies{grid-template-columns:repeat(2,1fr);gap:12px}
+.poster{height:200px}
+.hero h1{font-size:32px}
+nav a{font-size:12px;margin-left:8px}
 }
-
 @media(max-width:450px){
-  .logo{
-    font-size:20px;
-  }
-
-  nav a{
-    display:none;
-  }
-
-  .movies{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .poster{
-    height:180px;
-  }
+.logo{font-size:19px}
+nav a{display:none}
+.poster{height:175px}
 }
 </style>
 </head>
@@ -214,86 +54,119 @@ footer{
 <body>
 
 <header>
-  <div class="logo">De Bash <span>Movies</span></div>
-
-  <nav>
-    <a href="#">Home</a>
-    <a href="#movies">Movies</a>
-    <a href="#categories">Categories</a>
-  </nav>
+<div class="logo">De Bash <span>Movies</span></div>
+<nav>
+<a href="#">Home</a>
+<a href="#movies">Movies</a>
+<a href="#categories">Categories</a>
+</nav>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>Watch Movies & Entertainment</h1>
-    <p>
-      Discover movies, trailers and entertainment.
-      Find your favorite movies in one place.
-    </p>
-    <a href="#movies" class="btn">Explore Movies</a>
-  </div>
+<h1>Watch Movies & Entertainment</h1>
+<p>Discover movies, trailers and entertainment.</p>
+<button class="btn" onclick="scrollMovies()">Explore Movies</button>
 </section>
 
 <div class="search">
-  <input type="text" placeholder="🔍 Search movies...">
+<input id="searchBox" type="text" placeholder="🔍 Search movies..." onkeyup="searchMovies()">
 </div>
 
 <section class="section" id="movies">
-  <h2 class="section-title">🔥 Featured Movies</h2>
+<h2 class="section-title">🔥 Featured Movies</h2>
 
-  <div class="movies">
+<div class="movies" id="movieList">
 
-    <div class="movie">
-      <div class="poster">POSTER</div>
-      <div class="movie-info">
-        <h3>Sample Movie 1</h3>
-        <p>Action • 2026</p>
-      </div>
-    </div>
+<div class="movie" data-title="The Last Journey">
+<div class="poster">POSTER</div>
+<div class="movie-info">
+<h3>The Last Journey</h3>
+<p>Action • 2026</p>
+<button class="play" onclick="openMovie('The Last Journey','Action movie — 2026')">▶ Play</button>
+</div>
+</div>
 
-    <div class="movie">
-      <div class="poster">POSTER</div>
-      <div class="movie-info">
-        <h3>Sample Movie 2</h3>
-        <p>Drama • 2026</p>
-      </div>
-    </div>
+<div class="movie" data-title="Hidden Story">
+<div class="poster">POSTER</div>
+<div class="movie-info">
+<h3>Hidden Story</h3>
+<p>Drama • 2026</p>
+<button class="play" onclick="openMovie('Hidden Story','Drama movie — 2026')">▶ Play</button>
+</div>
+</div>
 
-    <div class="movie">
-      <div class="poster">POSTER</div>
-      <div class="movie-info">
-        <h3>Sample Movie 3</h3>
-        <p>Comedy • 2026</p>
-      </div>
-    </div>
+<div class="movie" data-title="Funny Weekend">
+<div class="poster">POSTER</div>
+<div class="movie-info">
+<h3>Funny Weekend</h3>
+<p>Comedy • 2026</p>
+<button class="play" onclick="openMovie('Funny Weekend','Comedy movie — 2026')">▶ Play</button>
+</div>
+</div>
 
-    <div class="movie">
-      <div class="poster">POSTER</div>
-      <div class="movie-info">
-        <h3>Sample Movie 4</h3>
-        <p>Thriller • 2026</p>
-      </div>
-    </div>
+<div class="movie" data-title="Dark Night">
+<div class="poster">POSTER</div>
+<div class="movie-info">
+<h3>Dark Night</h3>
+<p>Thriller • 2026</p>
+<button class="play" onclick="openMovie('Dark Night','Thriller movie — 2026')">▶ Play</button>
+</div>
+</div>
 
-  </div>
+</div>
 </section>
 
 <section class="section" id="categories">
-  <h2 class="section-title">🎭 Categories</h2>
-
-  <div class="categories">
-    <div class="category">Action</div>
-    <div class="category">Comedy</div>
-    <div class="category">Drama</div>
-    <div class="category">Thriller</div>
-    <div class="category">Sci-Fi</div>
-    <div class="category">Animation</div>
-  </div>
+<h2 class="section-title">🎭 Categories</h2>
+<div class="categories">
+<div class="category">Action</div>
+<div class="category">Comedy</div>
+<div class="category">Drama</div>
+<div class="category">Thriller</div>
+<div class="category">Sci-Fi</div>
+<div class="category">Animation</div>
+</div>
 </section>
 
+<div class="modal" id="movieModal">
+<div class="modal-box">
+<button class="close" onclick="closeMovie()">×</button>
+<div class="player">VIDEO PLAYER</div>
+<h2 id="movieTitle"></h2>
+<p id="movieDescription"></p>
+<button class="btn" onclick="closeMovie()">Close</button>
+</div>
+</div>
+
 <footer>
-  © 2026 De Bash Movies
+© 2026 De Bash Movies
 </footer>
+
+<script>
+function scrollMovies(){
+document.getElementById("movies").scrollIntoView({behavior:"smooth"});
+}
+
+function openMovie(title,description){
+document.getElementById("movieTitle").innerText=title;
+document.getElementById("movieDescription").innerText=description;
+document.getElementById("movieModal").style.display="flex";
+}
+
+function closeMovie(){
+document.getElementById("movieModal").style.display="none";
+}
+
+function searchMovies(){
+let value=document.getElementById("searchBox").value.toLowerCase();
+let movies=document.querySelectorAll(".movie");
+
+movies.forEach(movie=>{
+let title=movie.getAttribute("data-title").toLowerCase();
+movie.style.display=title.includes(value)?"block":"none";
+});
+}
+</script>
 
 </body>
 </html>
