@@ -5,7 +5,7 @@ const movies = [
     year: "2026",
     quality: "HD",
     poster: "",
-    video: "VID_20260925_104355_878.mp4",
+    video: "content://media/external/downloads/1000048114",
     description: "An exciting action movie full of adventure and suspense."
   },
 
