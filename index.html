@@ -2,170 +2,974 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>De Bash Movies</title>
+<meta name="description" content="De Bash Movies - Movies, trailers and entertainment">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#0b0b0f;color:#fff;font-family:Arial,sans-serif}
-header{background:#111116;padding:16px 5%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:10;border-bottom:1px solid #29292f}
-.logo{font-size:24px;font-weight:bold}.logo span{color:#e50914}
-nav a{color:#ddd;text-decoration:none;margin-left:18px;font-size:14px}
-.hero{padding:65px 6%;background:linear-gradient(90deg,#0b0b0f,#15151c)}
-.hero h1{font-size:40px;margin-bottom:12px}
-.hero p{color:#aaa;margin-bottom:22px}
-.btn{background:#e50914;color:#fff;border:0;border-radius:6px;padding:11px 20px;cursor:pointer;font-weight:bold}
-.search{text-align:center;padding:25px 5%}
-.search input{width:100%;max-width:600px;padding:14px;border:1px solid #333;border-radius:8px;background:#18181e;color:#fff;outline:0}
-.section{padding:15px 5% 35px}
-.section-title{margin-bottom:18px}
-.movies{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.movie{background:#17171d;border-radius:9px;overflow:hidden;transition:.2s}
-.movie:hover{transform:translateY(-5px)}
-.poster{height:250px;background:linear-gradient(135deg,#30303a,#17171d);display:flex;align-items:center;justify-content:center;color:#777}
-.movie-info{padding:13px}
-.movie-info h3{font-size:16px;margin-bottom:7px}
-.movie-info p{color:#888;font-size:13px;margin-bottom:12px}
-.play{width:100%;padding:9px;background:#e50914;color:#fff;border:0;border-radius:5px;cursor:pointer}
-.categories{display:flex;gap:10px;flex-wrap:wrap}
-.category{background:#1c1c23;padding:10px 18px;border-radius:20px;color:#ccc}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:20;align-items:center;justify-content:center;padding:20px}
-.modal-box{background:#18181e;max-width:600px;width:100%;padding:25px;border-radius:12px}
-.modal-box h2{margin-bottom:10px}
-.modal-box p{color:#aaa;line-height:1.6;margin-bottom:18px}
-.close{float:right;background:none;border:0;color:#fff;font-size:25px;cursor:pointer}
-.player{width:100%;height:280px;background:#050505;display:flex;align-items:center;justify-content:center;color:#777;margin-bottom:20px}
-footer{text-align:center;padding:30px;background:#111116;color:#777}
-
-@media(max-width:800px){
-.movies{grid-template-columns:repeat(2,1fr);gap:12px}
-.poster{height:200px}
-.hero h1{font-size:32px}
-nav a{font-size:12px;margin-left:8px}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
-@media(max-width:450px){
-.logo{font-size:19px}
-nav a{display:none}
-.poster{height:175px}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#08090d;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(12,13,18,.96);
+  border-bottom:1px solid #252731;
+  backdrop-filter:blur(10px);
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  padding:16px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.logo span{
+  color:#e50914;
+}
+
+nav{
+  display:flex;
+  gap:22px;
+}
+
+nav a{
+  color:#ddd;
+  text-decoration:none;
+  font-size:14px;
+}
+
+nav a:hover{
+  color:#fff;
+}
+
+/* HERO */
+.hero{
+  min-height:420px;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,#08090d 15%,rgba(8,9,13,.8),rgba(8,9,13,.25)),
+    linear-gradient(135deg,#242733,#0c0d12);
+}
+
+.hero-inner{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:70px 20px;
+}
+
+.hero-content{
+  max-width:650px;
+}
+
+.hero small{
+  color:#e50914;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.hero h1{
+  font-size:48px;
+  line-height:1.1;
+  margin:12px 0 16px;
+}
+
+.hero p{
+  color:#b8bac2;
+  line-height:1.7;
+  max-width:580px;
+}
+
+.hero-buttons{
+  margin-top:25px;
+  display:flex;
+  gap:12px;
+}
+
+.btn{
+  border:0;
+  border-radius:7px;
+  padding:13px 22px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.btn-primary{
+  background:#e50914;
+  color:#fff;
+}
+
+.btn-secondary{
+  background:#292b33;
+  color:#fff;
+}
+
+/* SEARCH */
+.search-area{
+  max-width:1200px;
+  margin:auto;
+  padding:25px 20px 10px;
+}
+
+.search-box{
+  position:relative;
+}
+
+.search-box input{
+  width:100%;
+  padding:15px 18px;
+  border:1px solid #30323b;
+  border-radius:8px;
+  outline:none;
+  background:#15171d;
+  color:#fff;
+  font-size:15px;
+}
+
+.search-box input:focus{
+  border-color:#e50914;
+}
+
+/* CONTENT */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:25px 20px 50px;
+}
+
+.section{
+  margin-top:25px;
+}
+
+.section-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+.section-title{
+  font-size:23px;
+}
+
+.section-subtitle{
+  color:#777;
+  font-size:13px;
+}
+
+/* CATEGORY */
+.categories{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:8px;
+}
+
+.categories::-webkit-scrollbar{
+  height:4px;
+}
+
+.category{
+  flex:0 0 auto;
+  background:#171920;
+  border:1px solid #292b34;
+  color:#ccc;
+  padding:9px 17px;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.category.active,
+.category:hover{
+  background:#e50914;
+  border-color:#e50914;
+  color:#fff;
+}
+
+/* MOVIES */
+.movies{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:18px;
+}
+
+.movie-card{
+  background:#14161c;
+  border:1px solid #23252d;
+  border-radius:9px;
+  overflow:hidden;
+  transition:.2s;
+}
+
+.movie-card:hover{
+  transform:translateY(-5px);
+  border-color:#3b3e49;
+}
+
+.poster{
+  height:270px;
+  background:
+    linear-gradient(135deg,#343741,#171920);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  font-size:13px;
+  position:relative;
+}
+
+.poster-badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#e50914;
+  padding:5px 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:bold;
+}
+
+.movie-info{
+  padding:13px;
+}
+
+.movie-title{
+  font-size:15px;
+  margin-bottom:7px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.movie-meta{
+  color:#858791;
+  font-size:12px;
+  margin-bottom:12px;
+}
+
+.watch-btn{
+  width:100%;
+  padding:9px;
+  border:0;
+  border-radius:5px;
+  background:#252832;
+  color:#fff;
+  cursor:pointer;
+}
+
+.watch-btn:hover{
+  background:#e50914;
+}
+
+/* NO RESULT */
+.no-result{
+  display:none;
+  text-align:center;
+  padding:40px;
+  color:#777;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:rgba(0,0,0,.88);
+  padding:20px;
+  align-items:center;
+  justify-content:center;
+}
+
+.modal-box{
+  width:100%;
+  max-width:720px;
+  max-height:90vh;
+  overflow:auto;
+  background:#15171d;
+  border:1px solid #30323b;
+  border-radius:12px;
+  padding:20px;
+}
+
+.modal-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+.close{
+  border:0;
+  background:none;
+  color:#fff;
+  font-size:28px;
+  cursor:pointer;
+}
+
+.video-box{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#050505;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#666;
+  border-radius:8px;
+  margin-bottom:18px;
+}
+
+.modal-title{
+  font-size:23px;
+  margin-bottom:8px;
+}
+
+.modal-meta{
+  color:#888;
+  font-size:13px;
+  margin-bottom:14px;
+}
+
+.modal-description{
+  color:#aaa;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid #24262e;
+  background:#0d0e12;
+  padding:35px 20px;
+  text-align:center;
+  color:#777;
+}
+
+.footer-logo{
+  color:#fff;
+  font-weight:bold;
+  font-size:20px;
+  margin-bottom:10px;
+}
+
+.footer-logo span{
+  color:#e50914;
+}
+
+footer p{
+  font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:1000px){
+  .movies{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+
+@media(max-width:750px){
+  nav{
+    display:none;
+  }
+
+  .hero{
+    min-height:360px;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  .movies{
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+  }
+
+  .poster{
+    height:220px;
+  }
+}
+
+@media(max-width:520px){
+  .header-inner{
+    padding:14px 15px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .hero-inner{
+    padding:55px 18px;
+  }
+
+  .hero h1{
+    font-size:31px;
+  }
+
+  .container,
+  .search-area{
+    padding-left:15px;
+    padding-right:15px;
+  }
+
+  .movies{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+
+  .poster{
+    height:205px;
+  }
+
+  .movie-info{
+    padding:10px;
+  }
+
+  .movie-title{
+    font-size:14px;
+  }
+
+  .hero-buttons{
+    flex-wrap:wrap;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
 <header>
-<div class="logo">De Bash <span>Movies</span></div>
-<nav>
-<a href="#">Home</a>
-<a href="#movies">Movies</a>
-<a href="#categories">Categories</a>
-</nav>
+  <div class="header-inner">
+    <div class="logo">
+      De Bash <span>Movies</span>
+    </div>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#movies">Movies</a>
+      <a href="#categories">Categories</a>
+    </nav>
+  </div>
 </header>
 
-<section class="hero">
-<h1>Watch Movies & Entertainment</h1>
-<p>Discover movies, trailers and entertainment.</p>
-<button class="btn" onclick="scrollMovies()">Explore Movies</button>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-content">
+
+      <small>WELCOME TO DE BASH MOVIES</small>
+
+      <h1>Movies & Entertainment</h1>
+
+      <p>
+        Discover movies, trailers and entertainment
+        in one place.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-primary"
+          onclick="scrollToMovies()">
+          ▶ Explore Movies
+        </button>
+
+        <button class="btn btn-secondary"
+          onclick="scrollToCategories()">
+          Browse Categories
+        </button>
+      </div>
+
+    </div>
+  </div>
 </section>
 
-<div class="search">
-<input id="searchBox" type="text" placeholder="🔍 Search movies..." onkeyup="searchMovies()">
+
+<!-- SEARCH -->
+<div class="search-area">
+  <div class="search-box">
+    <input
+      id="searchInput"
+      type="text"
+      placeholder="🔍 Search movies..."
+      oninput="searchMovies()"
+    >
+  </div>
 </div>
 
-<section class="section" id="movies">
-<h2 class="section-title">🔥 Featured Movies</h2>
 
-<div class="movies" id="movieList">
+<main class="container">
 
-<div class="movie" data-title="The Last Journey">
-<div class="poster">POSTER</div>
-<div class="movie-info">
-<h3>The Last Journey</h3>
-<p>Action • 2026</p>
-<button class="play" onclick="openMovie('The Last Journey','Action movie — 2026')">▶ Play</button>
-</div>
-</div>
-
-<div class="movie" data-title="Hidden Story">
-<div class="poster">POSTER</div>
-<div class="movie-info">
-<h3>Hidden Story</h3>
-<p>Drama • 2026</p>
-<button class="play" onclick="openMovie('Hidden Story','Drama movie — 2026')">▶ Play</button>
-</div>
-</div>
-
-<div class="movie" data-title="Funny Weekend">
-<div class="poster">POSTER</div>
-<div class="movie-info">
-<h3>Funny Weekend</h3>
-<p>Comedy • 2026</p>
-<button class="play" onclick="openMovie('Funny Weekend','Comedy movie — 2026')">▶ Play</button>
-</div>
-</div>
-
-<div class="movie" data-title="Dark Night">
-<div class="poster">POSTER</div>
-<div class="movie-info">
-<h3>Dark Night</h3>
-<p>Thriller • 2026</p>
-<button class="play" onclick="openMovie('Dark Night','Thriller movie — 2026')">▶ Play</button>
-</div>
-</div>
-
-</div>
-</section>
-
+<!-- CATEGORIES -->
 <section class="section" id="categories">
-<h2 class="section-title">🎭 Categories</h2>
-<div class="categories">
-<div class="category">Action</div>
-<div class="category">Comedy</div>
-<div class="category">Drama</div>
-<div class="category">Thriller</div>
-<div class="category">Sci-Fi</div>
-<div class="category">Animation</div>
-</div>
+
+  <div class="section-header">
+    <h2 class="section-title">🎭 Categories</h2>
+  </div>
+
+  <div class="categories">
+
+    <button class="category active"
+      onclick="filterCategory('All',this)">
+      All
+    </button>
+
+    <button class="category"
+      onclick="filterCategory('Action',this)">
+      Action
+    </button>
+
+    <button class="category"
+      onclick="filterCategory('Comedy',this)">
+      Comedy
+    </button>
+
+    <button class="category"
+      onclick="filterCategory('Drama',this)">
+      Drama
+    </button>
+
+    <button class="category"
+      onclick="filterCategory('Thriller',this)">
+      Thriller
+    </button>
+
+    <button class="category"
+      onclick="filterCategory('Sci-Fi',this)">
+      Sci-Fi
+    </button>
+
+    <button class="category"
+      onclick="filterCategory('Animation',this)">
+      Animation
+    </button>
+
+  </div>
 </section>
 
+
+<!-- MOVIES -->
+<section class="section" id="movies">
+
+  <div class="section-header">
+    <h2 class="section-title">🔥 Featured Movies</h2>
+    <span class="section-subtitle">
+      Latest collection
+    </span>
+  </div>
+
+  <div class="movies" id="movieGrid">
+
+
+    <!-- MOVIE 1 -->
+    <article class="movie-card"
+      data-title="The Last Journey"
+      data-category="Action">
+
+      <div class="poster">
+        <span class="poster-badge">HD</span>
+        MOVIE POSTER
+      </div>
+
+      <div class="movie-info">
+        <h3 class="movie-title">
+          The Last Journey
+        </h3>
+
+        <p class="movie-meta">
+          Action • 2026
+        </p>
+
+        <button class="watch-btn"
+          onclick="openMovie(
+          'The Last Journey',
+          'Action • 2026',
+          'A sample movie description.'
+          )">
+          ▶ Watch Details
+        </button>
+      </div>
+
+    </article>
+
+
+    <!-- MOVIE 2 -->
+    <article class="movie-card"
+      data-title="Hidden Story"
+      data-category="Drama">
+
+      <div class="poster">
+        <span class="poster-badge">HD</span>
+        MOVIE POSTER
+      </div>
+
+      <div class="movie-info">
+        <h3 class="movie-title">
+          Hidden Story
+        </h3>
+
+        <p class="movie-meta">
+          Drama • 2026
+        </p>
+
+        <button class="watch-btn"
+          onclick="openMovie(
+          'Hidden Story',
+          'Drama • 2026',
+          'A sample drama movie description.'
+          )">
+          ▶ Watch Details
+        </button>
+      </div>
+
+    </article>
+
+
+    <!-- MOVIE 3 -->
+    <article class="movie-card"
+      data-title="Funny Weekend"
+      data-category="Comedy">
+
+      <div class="poster">
+        <span class="poster-badge">HD</span>
+        MOVIE POSTER
+      </div>
+
+      <div class="movie-info">
+        <h3 class="movie-title">
+          Funny Weekend
+        </h3>
+
+        <p class="movie-meta">
+          Comedy • 2026
+        </p>
+
+        <button class="watch-btn"
+          onclick="openMovie(
+          'Funny Weekend',
+          'Comedy • 2026',
+          'A sample comedy movie description.'
+          )">
+          ▶ Watch Details
+        </button>
+      </div>
+
+    </article>
+
+
+    <!-- MOVIE 4 -->
+    <article class="movie-card"
+      data-title="Dark Night"
+      data-category="Thriller">
+
+      <div class="poster">
+        <span class="poster-badge">HD</span>
+        MOVIE POSTER
+      </div>
+
+      <div class="movie-info">
+        <h3 class="movie-title">
+          Dark Night
+        </h3>
+
+        <p class="movie-meta">
+          Thriller • 2026
+        </p>
+
+        <button class="watch-btn"
+          onclick="openMovie(
+          'Dark Night',
+          'Thriller • 2026',
+          'A sample thriller movie description.'
+          )">
+          ▶ Watch Details
+        </button>
+      </div>
+
+    </article>
+
+
+    <!-- MOVIE 5 -->
+    <article class="movie-card"
+      data-title="Future World"
+      data-category="Sci-Fi">
+
+      <div class="poster">
+        <span class="poster-badge">HD</span>
+        MOVIE POSTER
+      </div>
+
+      <div class="movie-info">
+        <h3 class="movie-title">
+          Future World
+        </h3>
+
+        <p class="movie-meta">
+          Sci-Fi • 2026
+        </p>
+
+        <button class="watch-btn"
+          onclick="openMovie(
+          'Future World',
+          'Sci-Fi • 2026',
+          'A sample science-fiction movie description.'
+          )">
+          ▶ Watch Details
+        </button>
+      </div>
+
+    </article>
+
+
+    <!-- MOVIE 6 -->
+    <article class="movie-card"
+      data-title="Magic World"
+      data-category="Animation">
+
+      <div class="poster">
+        <span class="poster-badge">HD</span>
+        MOVIE POSTER
+      </div>
+
+      <div class="movie-info">
+        <h3 class="movie-title">
+          Magic World
+        </h3>
+
+        <p class="movie-meta">
+          Animation • 2026
+        </p>
+
+        <button class="watch-btn"
+          onclick="openMovie(
+          'Magic World',
+          'Animation • 2026',
+          'A sample animation movie description.'
+          )">
+          ▶ Watch Details
+        </button>
+      </div>
+
+    </article>
+
+
+  </div>
+
+  <div class="no-result" id="noResult">
+    No movies found.
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- MOVIE DETAILS MODAL -->
 <div class="modal" id="movieModal">
-<div class="modal-box">
-<button class="close" onclick="closeMovie()">×</button>
-<div class="player">VIDEO PLAYER</div>
-<h2 id="movieTitle"></h2>
-<p id="movieDescription"></p>
-<button class="btn" onclick="closeMovie()">Close</button>
-</div>
+
+  <div class="modal-box">
+
+    <div class="modal-top">
+      <strong>Movie Details</strong>
+
+      <button class="close"
+        onclick="closeMovie()">
+        ×
+      </button>
+    </div>
+
+    <div class="video-box">
+      VIDEO PLAYER
+    </div>
+
+    <h2 class="modal-title"
+      id="modalTitle">
+    </h2>
+
+    <p class="modal-meta"
+      id="modalMeta">
+    </p>
+
+    <p class="modal-description"
+      id="modalDescription">
+    </p>
+
+    <button class="btn btn-primary"
+      onclick="closeMovie()">
+      Close
+    </button>
+
+  </div>
+
 </div>
 
+
+<!-- FOOTER -->
 <footer>
-© 2026 De Bash Movies
+
+  <div class="footer-logo">
+    De Bash <span>Movies</span>
+  </div>
+
+  <p>
+    © 2026 De Bash Movies. All rights reserved.
+  </p>
+
 </footer>
 
+
 <script>
-function scrollMovies(){
-document.getElementById("movies").scrollIntoView({behavior:"smooth"});
+
+/* SCROLL */
+function scrollToMovies(){
+  document.getElementById("movies")
+  .scrollIntoView({behavior:"smooth"});
 }
 
-function openMovie(title,description){
-document.getElementById("movieTitle").innerText=title;
-document.getElementById("movieDescription").innerText=description;
-document.getElementById("movieModal").style.display="flex";
+function scrollToCategories(){
+  document.getElementById("categories")
+  .scrollIntoView({behavior:"smooth"});
 }
 
-function closeMovie(){
-document.getElementById("movieModal").style.display="none";
-}
 
+/* SEARCH */
 function searchMovies(){
-let value=document.getElementById("searchBox").value.toLowerCase();
-let movies=document.querySelectorAll(".movie");
 
-movies.forEach(movie=>{
-let title=movie.getAttribute("data-title").toLowerCase();
-movie.style.display=title.includes(value)?"block":"none";
-});
+  const search =
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase();
+
+  const cards =
+    document.querySelectorAll(".movie-card");
+
+  let found = 0;
+
+  cards.forEach(card=>{
+
+    const title =
+      card.dataset.title.toLowerCase();
+
+    if(title.includes(search)){
+      card.style.display="block";
+      found++;
+    }else{
+      card.style.display="none";
+    }
+
+  });
+
+  document.getElementById("noResult")
+    .style.display =
+    found === 0 ? "block" : "none";
 }
+
+
+/* CATEGORY FILTER */
+function filterCategory(category,button){
+
+  document
+    .querySelectorAll(".category")
+    .forEach(btn=>{
+      btn.classList.remove("active");
+    });
+
+  button.classList.add("active");
+
+  const cards =
+    document.querySelectorAll(".movie-card");
+
+  let found=0;
+
+  cards.forEach(card=>{
+
+    if(
+      category==="All" ||
+      card.dataset.category===category
+    ){
+
+      card.style.display="block";
+      found++;
+
+    }else{
+
+      card.style.display="none";
+
+    }
+
+  });
+
+  document.getElementById("noResult")
+    .style.display =
+    found===0 ? "block" : "none";
+}
+
+
+/* MOVIE DETAILS */
+function openMovie(title,meta,description){
+
+  document.getElementById("modalTitle")
+    .innerText=title;
+
+  document.getElementById("modalMeta")
+    .innerText=meta;
+
+  document.getElementById("modalDescription")
+    .innerText=description;
+
+  document.getElementById("movieModal")
+    .style.display="flex";
+}
+
+
+/* CLOSE MODAL */
+function closeMovie(){
+
+  document.getElementById("movieModal")
+    .style.display="none";
+}
+
+
+/* CLOSE BY CLICKING OUTSIDE */
+document.getElementById("movieModal")
+.addEventListener("click",function(e){
+
+  if(e.target===this){
+    closeMovie();
+  }
+
+});
+
 </script>
 
 </body>
